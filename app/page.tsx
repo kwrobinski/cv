@@ -1,113 +1,115 @@
-import Image from "next/image";
+import Image from "next/image"
+import { GraduationCap, Lightbulb, UserSearch } from "lucide-react"
+
+import { Badge } from "@/components/ui/badge"
+import Section from "@/components/section"
+import {
+  TypographyH3,
+  TypographyLarge,
+  TypographyMedium,
+  TypographySmallMuted,
+} from "@/components/typography"
+
+interface SkillSectionProps {
+  title: string
+  skills: string[]
+}
+
+function SkillSection({ title, skills }: SkillSectionProps) {
+  return (
+    <div className="flex flex-col gap-y-2">
+      <TypographyLarge className="text-muted-foreground font-mono">
+        {title}
+      </TypographyLarge>
+
+      <div className="flex flex-wrap gap-2">
+        {skills.map((skill) => (
+          <Badge variant="outline" className="font-mono" key={skill}>
+            {skill}
+          </Badge>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <section className="flex flex-col space-y-10">
+      <Section
+        title="About me"
+        icon={<UserSearch className="text-muted-foreground" />}
+      >
+        <TypographySmallMuted className="font-mono mb-0">
+          I'm a Full Stack Engineer with 5 years of experience, specializing in
+          .NET and Vue.js for web development. I also develop mobile apps using
+          React Native and Expo. I have a knack for configuring GitLab CI/CD
+          pipelines, ensuring efficient deployments. With experience in team
+          leading, I enjoy collaborating and guiding projects to success. My
+          passion for exploring new technologies drives me to continuously
+          enhance my skills and stay at the forefront of industry trends.
+        </TypographySmallMuted>
+      </Section>
+
+      <Section
+        title="Education"
+        icon={<GraduationCap className="text-muted-foreground" />}
+      >
+        <div className="flex flex-row justify-between">
+          <TypographyLarge>Collegium Da Vinci</TypographyLarge>
+          <TypographyLarge className="text-muted-foreground font-normal font-mono">
+            2019-2023
+          </TypographyLarge>
         </div>
-      </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <TypographyMedium className="font-mono font-normal text-muted-foreground">
+          Bachelor's Degree in Computer Science
+        </TypographyMedium>
+      </Section>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <Section
+        title="Skills"
+        icon={<Lightbulb className="text-muted-foreground" />}
+      >
+        <div className="flex flex-col gap-y-6">
+          <SkillSection
+            title="Backend"
+            skills={[
+              "ASP.NET Core",
+              "Entity Framework Core",
+              "MediatR",
+              "MassTransit",
+              "Polly",
+              "Refit",
+              "NLog",
+            ]}
+          />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          <SkillSection
+            title="Frontend"
+            skills={[
+              "Vue.js / Nuxt",
+              "React / Next",
+              "JavaScript",
+              "TypeScript",
+              "Tailwind CSS",
+              "Bootstrap",
+              "TanStack Query",
+              "shadcn/ui",
+            ]}
+          />
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+          <SkillSection
+            title="Mobile"
+            skills={["React Native", "Expo", "Notifications", "Tamagui"]}
+          />
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+          <SkillSection
+            title="Other"
+            skills={["Gitlab CI/CD", "Docker", "Linux", "REST / SOAP"]}
+          />
+        </div>
+      </Section>
+    </section>
+  )
 }
