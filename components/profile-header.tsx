@@ -1,4 +1,6 @@
 import Image from "next/image"
+import Link from "next/link"
+import RESUME_DATA from "@/data/cv-data"
 import { Github, Globe, Linkedin, Mail } from "lucide-react"
 
 import SocialIcon from "./social-icon"
@@ -15,17 +17,31 @@ export default function ProfileHeader() {
           efficient applications that meet user needs.
         </TypographySmallMuted>
 
-        <div className="flex items-center gap-x-1.5">
-          <Globe size={14} className="text-muted-foreground" />
-          <TypographySmallMuted className="font-mono text-xs">
+        <Link href={RESUME_DATA.location.url} target="_blank">
+          <TypographySmallMuted className="inline-flex font-mono text-xs hover:underline items-center gap-x-1">
+            <Globe size={14} className="text-muted-foreground" />
             Poznań, Poland
           </TypographySmallMuted>
-        </div>
+        </Link>
 
         <div className="flex items-center gap-x-3">
-          <SocialIcon type="mail" />
-          <SocialIcon type="linkedin" />
-          <SocialIcon type="github" />
+          <SocialIcon
+            icon={Mail}
+            href={RESUME_DATA.urls.mail}
+            ariaLabel="Email Kacper Wróbiński"
+          />
+          <SocialIcon
+            icon={Linkedin}
+            href={RESUME_DATA.urls.linkedin}
+            ariaLabel="Kacper Wróbiński's LinkedIn profile"
+            externalHref
+          />
+          <SocialIcon
+            icon={Github}
+            href={RESUME_DATA.urls.github}
+            ariaLabel="Kacper Wróbiński's GitHub profile"
+            externalHref
+          />
         </div>
       </div>
 

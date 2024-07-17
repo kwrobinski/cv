@@ -1,7 +1,9 @@
 import Image from "next/image"
+import RESUME_DATA from "@/data/cv-data"
 import { GraduationCap, ScrollText } from "lucide-react"
 
 import Section from "@/components/section"
+import Timeline from "@/components/timeline"
 import { TypographyLarge, TypographyMedium } from "@/components/typography"
 
 export default function Contact() {
@@ -10,16 +12,19 @@ export default function Contact() {
       title="Work experience"
       icon={<ScrollText className="text-muted-foreground" />}
     >
-      <div className="flex flex-row justify-between">
-        <TypographyLarge>Collegium Da Vinci</TypographyLarge>
-        <TypographyLarge className="text-muted-foreground font-normal font-mono">
-          2019-2023
-        </TypographyLarge>
+      <div className="p-2">
+        <Timeline
+          items={RESUME_DATA.workExperience.map((x) => {
+            return {
+              title: x.company,
+              subtitle: x.position,
+              time: x.time,
+              descriptionList: x.duties,
+              current: x.current,
+            }
+          })}
+        />
       </div>
-
-      <TypographyMedium className="font-mono font-normal text-muted-foreground">
-        Bachelor's Degree in Computer Science
-      </TypographyMedium>
     </Section>
   )
 }

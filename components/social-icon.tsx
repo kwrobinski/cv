@@ -1,21 +1,29 @@
-import { Github, Linkedin, Mail } from "lucide-react"
+import Link from "next/link"
+import { LucideIcon } from "lucide-react"
 
-import { Button } from "./ui/button"
+import { buttonVariants } from "./ui/button"
 
 interface SocialIconProps {
-  type: "github" | "linkedin" | "mail"
+  icon: LucideIcon
+  href: string
+  ariaLabel?: string
+  externalHref?: boolean
 }
 
-export default function SocialIcon({ type }: SocialIconProps) {
+export default function SocialIcon(props: SocialIconProps) {
+  const Icon = props.icon
+
   return (
-    <Button className="h-8 w-8" variant="outline" size="icon">
-      {type === "github" && (
-        <Github size={18} className="text-muted-foreground" />
-      )}
-      {type === "linkedin" && (
-        <Linkedin size={18} className="text-muted-foreground" />
-      )}
-      {type === "mail" && <Mail size={18} className="text-muted-foreground" />}
-    </Button>
+    <Link
+      href={props.href}
+      target={props.externalHref ? "_blank" : undefined}
+      aria-label={props.ariaLabel}
+      className={`${buttonVariants({
+        variant: "outline",
+        size: "icon",
+      })} h-8 w-8`}
+    >
+      <Icon size={18} className="text-muted-foreground" />
+    </Link>
   )
 }
