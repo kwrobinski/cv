@@ -1,5 +1,3 @@
-import { Type } from "lucide-react"
-
 import {
   TypographyH4,
   TypographyLarge,

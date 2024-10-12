@@ -3,17 +3,9 @@ import { Inter as FontSans } from "next/font/google"
 
 import "./globals.css"
 
-import Image from "next/image"
-import { Github, Globe, Linkedin, Mail } from "lucide-react"
-
 import { cn } from "@/lib/utils"
 import NavBar from "@/components/nav-bar"
 import ProfileHeader from "@/components/profile-header"
-import {
-  TypographyH2,
-  TypographyH3,
-  TypographySmallMuted,
-} from "@/components/typography"
 
 const fontSans = FontSans({
   subsets: ["latin"],

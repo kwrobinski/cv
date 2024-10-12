@@ -34,7 +34,6 @@ export default function NavBar() {
       <NavBarButton href="/">About</NavBarButton>
       <NavBarButton href="/career">Career</NavBarButton>
       <NavBarButton href="/projects">Projects</NavBarButton>
-      <NavBarButton href="/contact">Contact</NavBarButton>
     </nav>
   )
 }

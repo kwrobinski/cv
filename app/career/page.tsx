@@ -1,10 +1,8 @@
-import Image from "next/image"
 import RESUME_DATA from "@/data/cv-data"
-import { GraduationCap, ScrollText } from "lucide-react"
+import { ScrollText } from "lucide-react"
 
 import Section from "@/components/section"
 import Timeline from "@/components/timeline"
-import { TypographyLarge, TypographyMedium } from "@/components/typography"
 
 export default function Contact() {
   return (
