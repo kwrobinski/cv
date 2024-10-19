@@ -1,4 +1,5 @@
 interface ResumeData {
+  siteMetadata: SiteMetadata,
   name: string
   description: string
   location: Location
@@ -39,7 +40,16 @@ interface WorkExperience {
   duties: string[]
 }
 
+interface SiteMetadata {
+  title: string
+  description: string
+}
+
 const RESUME_DATA: ResumeData = {
+  siteMetadata: {
+    title: "Kacper Wróbiński - Full-stack Developer",
+    description: "Kacper Wróbiński - Full-stack Developer",
+  },
   name: "Kacper Wróbiński",
   description:
     "Experienced Full Stack Engineer with a keen eye for detail, focused on delivering high-quality products.",

@@ -40,7 +40,7 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
         >
           <TimelineDot current={item.current} />
 
-          <div className="flex flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-between md:items-center">
             <TypographyH4>{item.title}</TypographyH4>
 
             <TypographyLarge className="text-muted-foreground font-normal font-mono">

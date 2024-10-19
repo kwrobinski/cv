@@ -29,7 +29,7 @@ export default function Projects() {
           <Rocket size={96} className="text-muted-foreground" />
         </motion.div>
 
-        <TypographyH3 className="!font-mono">
+        <TypographyH3 className="!font-mono text-center">
           Big things are brewing, stay tuned!
         </TypographyH3>
       </div>

@@ -3,6 +3,8 @@ import { Inter as FontSans } from "next/font/google"
 
 import "./globals.css"
 
+import RESUME_DATA from "@/data/cv-data"
+
 import { cn } from "@/lib/utils"
 import NavBar from "@/components/nav-bar"
 import ProfileHeader from "@/components/profile-header"
@@ -13,8 +15,8 @@ const fontSans = FontSans({
 })
 
 export const metadata: Metadata = {
-  title: "Kacper Wróbiński - Full-stack Developer",
-  description: "Kacper Wróbiński - Full-stack Developer",
+  title: RESUME_DATA.siteMetadata.title,
+  description: RESUME_DATA.siteMetadata.description,
 }
 
 export default function RootLayout({
