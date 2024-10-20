@@ -1,6 +1,9 @@
 import type { Config } from "tailwindcss"
+import { Pixelify_Sans } from "next/font/google"
 
 const { fontFamily } = require("tailwindcss/defaultTheme")
+
+console.log(fontFamily)
 
 const config = {
   darkMode: ["class"],
@@ -10,6 +13,7 @@ const config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
+  safelist: ['dark'],
   prefix: "",
   theme: {
     container: {

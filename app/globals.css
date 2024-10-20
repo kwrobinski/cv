@@ -57,12 +57,30 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
+  @keyframes blink {
+
+    0%,
+    50% {
+      opacity: 0;
+    }
+
+    51%,
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animation-blink {
+    animation: blink 1s steps(1, start) infinite;
+  }
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
