@@ -1,5 +1,5 @@
-## CV Template
-Simple CV template with easy configuration. Built with Next.js 14, TypeScript and shadcn/ui.
+## CV Website Template
+Simple CV website template with easy configuration. Built with Next.js 14, TypeScript and shadcn/ui.
 
 Inspired by [BartoszJarocki/cv](https://github.com/BartoszJarocki/cv)
 
